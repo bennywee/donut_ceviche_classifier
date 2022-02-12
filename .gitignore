@@ -1,3 +1,7 @@
+# Data
+data/donuts/
+data/ceviche/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
