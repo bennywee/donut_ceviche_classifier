@@ -17,7 +17,7 @@ docker run -v "$PWD":/classifier -p 8888:8888 -it 'classifier_dev' /bin/bash
 To run jupyter lab, execute `jupyter lab --ip=0.0.0.0 --allow-root` in the terminal inside the container. Copy the URL into the browser (should be the last link with the access token).
 
 # Copy (unzipped) data into the data folder
-Data privacy is important - so as good practice I have not included the raw data files in my remote repo. To run the code, you will need to copy the unzipped donut and ceviche folders into the `data/` directory. The data directory should look like this:
+To run the code, you will need to copy the unzipped donut and ceviche folders into the `data/` directory. The data directory should look like this:
 
 ```
 ├── data
