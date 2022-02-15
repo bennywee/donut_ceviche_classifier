@@ -45,8 +45,8 @@ To run the code, you will need to copy the unzipped donut and ceviche folders in
     + Feature extraction and prepartion before applying classification model
     
 4) Train Classifcation Model
-    + Train classification models
-    + Apply gridsearch and cross validation to select best hyperparameters
+    + Split data into training and test set
+    + Apply gridsearch and cross validation to select best hyperparameters on training set
     + Pick best model based on best evaluation metric
     
 5) Final Model Performance
@@ -54,15 +54,15 @@ To run the code, you will need to copy the unzipped donut and ceviche folders in
     + Compare precision, recall and f1 metrics and view the raw classification in a confusion matrix.
 
 # Train model
-To run the code which produces a trained classification model run the following in the terminal
+To run the code which produces a trained classification model, execute the following command:
 
 ```console
 python train.py
 ```
-This will produce a pickle model object in the `model/` directory. The choice of algorithm is baseed on the analysis in `analysis/exploratory_analysis.ipynb`. This object is currently in the model directory and running `python train.py` it will train reproduce the same model.
+This will produce a pickle model object in the `model/` directory. The choice of algorithm is baseed on the analysis in `analysis/exploratory_analysis.ipynb`. This object is currently in the model directory and running `python train.py` will reproduce the same model.
 
 # Model scoring
-Running `python predict.py` loads the model object from the `model/` directory and predicts on an arbitrary image. The prediction will be printed to the terminal.
+Running `python predict.py` loads the model object from the `model/` directory and predicts on an arbitrary image. The prediction will be printed to the terminal or console.
 
 # Unit tests
 Pytest is used for unit testing. To run unit tests:
@@ -95,7 +95,7 @@ As a proof of concept, suppose a product feature requires close to real time cla
 
 2) Expose the model via a API to be called on a web or cloud service
 
-3) Create a docker container which contains the trained model and the python code to serve the API
+3) Create another docker container (call it staging) which contains the trained model and the python code to serve the API
 
 4) Deploy the container in the staging environment (perform A/B tests or shadow tests, integration tests, expose it to a subset of production data)
 
@@ -103,4 +103,4 @@ As a proof of concept, suppose a product feature requires close to real time cla
 
 6) Monitor model performance in production
 
-A simple way to do this is to create a API using Flask to be hosted in the staging container. Since model development was done in a docker container, we could create another container to serve the model and API in staging. 
+A simple way to do this is to create a API using Flask to be hosted in the staging container. We can create the staging container by writing a new Dockerfile or extending the existing one as a multi stage build.
