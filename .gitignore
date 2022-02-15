@@ -1,7 +1,6 @@
 # Data
 */.ipynb_checkpoints
-data/donuts/
-data/ceviche/
+data/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
